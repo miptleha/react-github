@@ -1,4 +1,6 @@
-## GitHub search app
+## GitHub Search App
+
+Simplified version of github [Search](https://github.com/search/advanced)
 
 [Generate](https://github.com/settings/tokens/new) GitHub token and add it to [global.js](global.js)
 
