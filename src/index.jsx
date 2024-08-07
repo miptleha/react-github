@@ -1,9 +1,11 @@
 import {createRoot} from 'react-dom/client'
 import './index.css'
+import { BrowserRouter } from 'react-router-dom';
+import { App } from './App';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
-  <h1>
-    Hello from react!
-  </h1>
+  <BrowserRouter>
+    <App/>
+  </BrowserRouter>
 );
