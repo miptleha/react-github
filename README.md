@@ -1,4 +1,4 @@
-**The project is not ready yet, you can write your wishes in issues**
+>The project is not ready yet, you can write your wishes in issues
 
 ## GitHub Search App
 
