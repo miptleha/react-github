@@ -1,3 +1,5 @@
+** the project is not ready yet, you can write your wishes in issues **
+
 ## GitHub Search App
 
 Simplified version of GitHub [Search](https://github.com/search/advanced)
