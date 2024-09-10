@@ -10,7 +10,7 @@ Simplified version of GitHub [Search](https://github.com/search/advanced)
 
 Install dependencies and run the project:
 ```
-npm install
+npm ci
 npm start
 ```
 
