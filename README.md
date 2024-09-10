@@ -2,7 +2,7 @@
 
 Simplified version of GitHub [Search](https://github.com/search/advanced)
 
-[!app.png](app.png)
+![app.png](app.png)
 
 ## How to run
 
@@ -10,11 +10,12 @@ Simplified version of GitHub [Search](https://github.com/search/advanced)
 
 Install dependencies and run the project:
 ```
-npm install
+npm ci
 npm start
 ```
 
-[!WARNING] The build will fail with an error if there is no token
+>[!WARNING]
+>The build will fail with an error if there is no token
 
 Test production build:
 ```
