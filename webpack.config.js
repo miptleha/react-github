@@ -2,14 +2,21 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const webpack = require('webpack');
 const { GITHUB_TOKEN } = require('./global');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const devMode = process.env.NODE_ENV !== "production";
 
-console.log("devMode: " + devMode)
+console.log("devMode: " + devMode);
+if (GITHUB_TOKEN == "") {
+    throw Error("Authorization token not set in global.js")
+}
 
 module.exports = {
     mode: devMode ? 'development' : 'production',
     entry: './src/index.jsx',
+    optimization: {
+        minimize: false
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[contenthash].js',
@@ -25,10 +32,11 @@ module.exports = {
     },
     devtool: devMode ? 'eval-source-map' : 'nosources-source-map',
     plugins: [
-        new HtmlWebpackPlugin({template: './src/index.html'}),
+        new HtmlWebpackPlugin({ template: './src/index.html' }),
         new webpack.DefinePlugin({
             GITHUB_TOKEN: JSON.stringify(GITHUB_TOKEN)
-        })
+        }),
+        new MiniCssExtractPlugin()
     ],
     module: {
         rules: [
@@ -40,14 +48,18 @@ module.exports = {
                     options: {
                         presets: [
                             ['@babel/preset-env'],
-                            ['@babel/preset-react', {"runtime": "automatic"}]
+                            ['@babel/preset-react', { "runtime": "automatic" }]
                         ]
                     }
                 }
             },
             {
-                test: /\.(css|less)$/i,
-                use: ['style-loader', 'css-loader']
+                test: /\.(css)$/i,
+                use: [ MiniCssExtractPlugin.loader, 'css-loader']
+            },
+            {
+                test: /\.(scss)$/i,
+                use: [ MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
