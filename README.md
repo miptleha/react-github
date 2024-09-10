@@ -2,7 +2,7 @@
 
 Simplified version of GitHub [Search](https://github.com/search/advanced)
 
-[!app.png](app.png)
+[app.png](app.png)
 
 ## How to run
 
