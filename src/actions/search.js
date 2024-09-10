@@ -1,12 +1,14 @@
 import axios from "axios";
 import { searchDone, searchError, searchStart } from "../storage/searchSlice";
 import { GITHUB_TOKEN } from "../../global";
+import { clearRepo } from "../storage/repoSlice";
 
 export function searchAction(searchQuery, language, currentPage, perPage) {
     console.log(">searchAction", {searchQuery, language, currentPage, perPage});
     return async (dispatch) => {
         try {
             dispatch(searchStart({searchQuery, language, perPage, currentPage}));
+            dispatch(clearRepo());
 
             if (searchQuery == "") {
                 searchQuery = "stars:%3E0";

@@ -12,6 +12,13 @@ export const repoSlice = createSlice({
     name: "repo",
     initialState,
     reducers: {
+        clearRepo: (state) => {
+            state.isLoading = false;
+            state.loadError = "";
+            state.userName = "";
+            state.repoName = "";
+            state.results = null;
+        },
         loadRepoStart: (state, action) => {
             state.isLoading = true;
             state.loadError = "";
@@ -30,5 +37,5 @@ export const repoSlice = createSlice({
     }
 });
 
-export const { loadRepoStart, loadRepoError, loadRepoDone } = repoSlice.actions;
+export const { clearRepo, loadRepoStart, loadRepoError, loadRepoDone } = repoSlice.actions;
 export default repoSlice.reducer;
