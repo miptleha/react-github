@@ -14,7 +14,8 @@ npm install
 npm start
 ```
 
->[!WARNING] The build will fail with an error if there is no token
+>[!WARNING]
+>The build will fail with an error if there is no token
 
 Test production build:
 ```
