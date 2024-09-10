@@ -11,12 +11,13 @@ export function searchAction(searchQuery, language, currentPage, perPage) {
             dispatch(clearRepo());
 
             if (searchQuery == "") {
-                searchQuery = "stars:%3E0";
+                searchQuery = "stars:>0";
             }
             if (language.length > 0) {
                 searchQuery = searchQuery + " language:" + language;
             }
-            
+
+            searchQuery = encodeURIComponent(searchQuery);
             const response = await axios.get(`https://api.github.com/search/repositories?q=${searchQuery}&sort=stars&per_page=${perPage}&page=${currentPage}`, {
                 headers: {
                     Authorization: `token ${GITHUB_TOKEN}`

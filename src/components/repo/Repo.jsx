@@ -31,11 +31,11 @@ export function Repo() {
                     </tr>
                     <tr>
                         <td>Repo</td>
-                        <td>{repo.name}</td>
+                        <td className="text-break">{repo.name}</td>
                     </tr>
                     <tr>
                         <td>Desc</td>
-                        <td>{repo.description}</td>
+                        <td className="text-break">{repo.description}</td>
                     </tr>
                     <tr>
                         <td>Language</td>

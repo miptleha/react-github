@@ -3,6 +3,7 @@ import { selectRepo } from "../../../storage/repoSlice";
 import { repoAction } from "../../../actions/repo";
 
 const MAX_DESC = 100;
+const MAX_NAME = 50;
 const MAX_TOPICS = 40;
 
 export function GridRow({ i, n }) {
@@ -21,7 +22,7 @@ export function GridRow({ i, n }) {
     return (
         <tr onClick={activeTr}>
             <td>{n + 1}</td>
-            <td>{i.full_name}</td>
+            <td>{i.full_name?.length > MAX_NAME ? i.full_name.slice(0, MAX_NAME) + "..." : i.full_name}</td>
             <td>{i.description?.length > MAX_DESC ? i.description.slice(0, MAX_DESC) + "..." : i.description}</td>
             <td>{i.language}</td>
             <td>{i.stargazers_count}</td>

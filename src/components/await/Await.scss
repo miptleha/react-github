@@ -1,0 +1,21 @@
+.await {
+    margin: calc(50vh - 150px) auto;
+    border: 10px dashed var(--bs-primary);
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    animation-name: await-anim;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes await-anim {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    
+}
